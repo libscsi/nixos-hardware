@@ -16,6 +16,15 @@ let
     { name, hash }:
     {
       inherit name;
+      if name == "2008-i915-4-lane-quirk-for-mbp15-1.patch" then
+      patch = fetchurl {
+        inherit name;
+        url = "https://gist.github.com/libscsi/ac074c11a6d5a3c4c8df8f10371ab00b";
+        hash = "sha256-D5Bn2ooZiv1JCkIRlFghX1ZEUyH4MBpOJXKqQ/KTFF8=";
+      };
+
+      else
+
       patch = fetchurl {
         inherit name hash;
         url = patchset.base_url + name;
